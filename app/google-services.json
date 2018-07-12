@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "714765744540",
+    "firebase_url": "https://credvault-ff385.firebaseio.com",
+    "project_id": "credvault-ff385",
+    "storage_bucket": "credvault-ff385.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714765744540:android:eec8e488a7f90f9b",
+        "android_client_info": {
+          "package_name": "com.app.credentialvault.credvault"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714765744540-2pip8sarhi2o6ue6rn3on7almorf0ivi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.credentialvault.credvault",
+            "certificate_hash": "6747cd91bfed0502e12a6b00fb1cee00bff55b95"
+          }
+        },
+        {
+          "client_id": "714765744540-0ardfsmla6und8id3ej35u04nn2t9rqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCjxWygKE8f0dExb6ECPuAka6jTaXuVfU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714765744540-0ardfsmla6und8id3ej35u04nn2t9rqb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

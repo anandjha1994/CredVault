@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="toolbar">#cab476</color>
+
+    <color name="cardtext">#36ed0d</color>
+    <color name="gridBackground">#443f3f40</color>
+    <color name="transparent">#00ffffff</color>
+
+
+
+</resources>
