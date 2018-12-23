@@ -7,55 +7,98 @@ import com.google.firebase.database.PropertyName;
  * Created by JHA on 4/1/2018.
  */
 @IgnoreExtraProperties
-public class Card {
+public class Card{
+
+    @PropertyName("id")
+    private String id;
+
+    @PropertyName("name_on_card")
+    private String name;
+
 
     @PropertyName("card_number")
-    private static String number;
+    private String number;
 
     @PropertyName("expiry_date")
-    private static String exDate;
+    private String expiryDate;
 
-    @PropertyName("cvv")
-    private static String cvv;
+    @PropertyName("cvc")
+    private String cvc;
 
-    @PropertyName("user_name")
-    private static String pin;
+    @PropertyName("sec_pin")
+    private String pin;
 
+    @PropertyName("additional")
+    private String additional;
+
+    @PropertyName("favorite")
+    private boolean favorite;
 
     public Card() {
         // Default Constructor
     }
 
-    public static String getNumber() {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public  String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public  String getNumber() {
         return number;
     }
 
-    public static void setNumber(String number) {
-        Card.number = number;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
-    public static String getExDate() {
-        return exDate;
+    public String getExpiryDate() {
+        return expiryDate;
     }
 
-    public static void setExDate(String exDate) {
-        Card.exDate = exDate;
+    public void setExpiryDate(String exDate) {
+        this.expiryDate = exDate;
     }
 
-    public static String getCvv() {
-        return cvv;
+    public String getCvc() {
+        return cvc;
     }
 
-    public static void setCvv(String cvv) {
-        Card.cvv = cvv;
+    public void setCvc(String cvc) {
+        this.cvc = cvc;
     }
 
-    public static String getPin() {
+    public String getPin() {
         return pin;
     }
 
-    public static void setPin(String pin) {
-        Card.pin = pin;
+    public void setPin(String pin) {
+        this.pin = pin;
     }
 
+    public String getAdditional() {
+        return additional;
+    }
+
+    public void setAdditional(String additional) {
+        this.additional = additional;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
+    }
 }

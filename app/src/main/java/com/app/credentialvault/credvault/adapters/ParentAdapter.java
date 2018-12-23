@@ -38,7 +38,7 @@ public class ParentAdapter extends ExpandableRecyclerViewAdapter<ParentViewHolde
     @Override
     public void onBindChildViewHolder(ChildListHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
         Child child= (Child) group.getItems().get(childIndex);
-        holder.setChild(child.getLabel(),child.getIconResId());
+        holder.setChild(child.getLabel(),child.getIconResId(), child.getObjRefId(),child.getAuthType(),child.getContext());
     }
 
     @Override

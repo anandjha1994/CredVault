@@ -21,14 +21,15 @@ public class ParentViewHolder extends GroupViewHolder{
 
     public ParentViewHolder(View itemView) {
         super(itemView);
-        parentLabel = (TextView) itemView.findViewById(R.id.parent_text_label);
-        childCount = (TextView) itemView.findViewById(R.id.parent_text_count);
-        arrow = (ImageView) itemView.findViewById(R.id.parent_icon_tail);
-        icon = (ImageView) itemView.findViewById(R.id.parent_icon_head);
+        parentLabel =  itemView.findViewById(R.id.parent_text_label);
+        childCount =  itemView.findViewById(R.id.parent_text_count);
+        arrow = itemView.findViewById(R.id.parent_icon_tail);
+        icon =  itemView.findViewById(R.id.parent_icon_head);
     }
 
     public void setParent(ExpandableGroup parent){
         parentLabel.setText(parent.getTitle());
         icon.setBackgroundResource(((Parent) parent).getIconResId());
+        childCount.setText(((Parent) parent).getTotalChild());
     }
 }

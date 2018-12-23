@@ -6,9 +6,10 @@
     <string name="email">E-Mail</string>
     <string name="notes">Notes</string>
     <string name="favourite">Favourites</string>
-    <string name="favourite_tooltip">Add to favourites</string>
+    <string name="favourite_tooltip">Add To Favourites</string>
     <string name="save">Save</string>
-    <string name="favourite_checkbox">Mark as favourite</string>
+    <string name="favourite_checkbox">Mark As Favourite</string>
+    <string name="website_url">URL</string>
 
     <string name="fam_website">Add Website Credentials</string>
     <string name="fam_basic">Add Basic Credentials</string>
@@ -19,5 +20,14 @@
     <string name="fav_basic">Basic</string>
     <string name="fav_card">Cards</string>
     <string name="fav_notes">Notes</string>
+
+    <!--Card form-->
+    <string name="label_card_name">Name On Card</string>
+    <string name="label_card_number">Card Number</string>
+    <string name="label_card_cvc">CVC</string>
+    <string name="label_expiry_date">Expiry Date (MM/YY)</string>
+    <string name="label_pin">Secure PIN</string>
+
+    <string name="title">Title</string>
 
 </resources>

@@ -1,8 +1,10 @@
 package com.app.credentialvault.credvault.model;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.app.credentialvault.credvault.utils.AuthenticationType;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import java.util.List;
@@ -17,25 +19,30 @@ public class Child implements Parcelable{
 
     private int iconResId;
 
-    public int getIconResId() {
-        return iconResId;
-    }
+    private String objRefId;
 
-    public void setIconResId(int iconResId) {
-        this.iconResId = iconResId;
-    }
+    private AuthenticationType authType;
 
-    public Child(String label, int iconResId) {
+    private Context context;
+
+    public Child(Context context,String label, int iconResId, String objRefId, AuthenticationType authType) {
         this.label = label;
         this.iconResId=iconResId;
+        this.objRefId=objRefId;
+        this.authType=authType;
+        this.context=context;
     }
 
     public String getLabel() {
         return label;
     }
 
-    public void setLabel(String label) {
-        this.label = label;
+    public int getIconResId() {
+        return iconResId;
+    }
+
+    public Context getContext() {
+        return context;
     }
 
     public static final Creator<Child> CREATOR = new Creator<Child>() {
@@ -61,5 +68,13 @@ public class Child implements Parcelable{
     @Override
     public void writeToParcel(Parcel parcel, int i) {
 
+    }
+
+    public String getObjRefId() {
+        return objRefId;
+    }
+
+    public AuthenticationType getAuthType() {
+        return authType;
     }
 }

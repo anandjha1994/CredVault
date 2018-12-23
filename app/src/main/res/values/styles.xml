@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CheckBoxComponent" parent="Theme.AppCompat.Light.NoActionBar">
+        //Checked color
+        <item name="colorAccent">@color/fadedLightGreenAccent</item>
+        //Checkbox border color
+        <item name="android:textColorSecondary">@color/lightGreenAccent</item>
+    </style>
+
 </resources>

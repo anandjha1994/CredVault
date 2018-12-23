@@ -7,7 +7,7 @@ import com.google.firebase.database.PropertyName;
  * Created by JHA on 4/1/2018.
  */
 @IgnoreExtraProperties
-public class BasicLoginInfo {
+public class BasicLoginInfo{
 
     @PropertyName("id")
     private String id;
@@ -27,8 +27,8 @@ public class BasicLoginInfo {
     @PropertyName("additional")
     private String additional;
 
-    @PropertyName("isFavourite")
-    private String isFavourite;
+    @PropertyName("favourite")
+    private boolean favourite;
 
 
     public BasicLoginInfo() {
@@ -81,13 +81,12 @@ public class BasicLoginInfo {
         this.password = password;
     }
 
-
-    public String getIsFavourite() {
-        return isFavourite;
+    public boolean isFavourite() {
+        return favourite;
     }
 
-    public void setIsFavourite(String isFavourite) {
-        this.isFavourite = isFavourite;
+    public void setFavourite(boolean favourite) {
+        this.favourite = favourite;
     }
 
 

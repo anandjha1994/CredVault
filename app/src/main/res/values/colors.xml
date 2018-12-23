@@ -4,11 +4,17 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ff4081</color>
     <color name="toolbar">#cab476</color>
+    <color name="pureWhite">#ffffff</color>
 
     <color name="cardtext">#36ed0d</color>
     <color name="gridBackground">#443f3f40</color>
     <color name="transparent">#00ffffff</color>
 
+    <color name="hintTextColorForms">#aefa9d</color>
+    <color name="lightGreenAccent">#36ed0d</color>
+    <color name="fadedLightGreenAccent">#aefa9d</color>
 
+    <color name="red">#fc031c</color>
+    <color name="blueGray">#aba3bf</color>
 
 </resources>

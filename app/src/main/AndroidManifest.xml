@@ -21,8 +21,10 @@
         <activity android:name=".activities.HomeActivity" />
         <activity android:name=".activities.NewWebsiteActivity" />
         <activity android:name=".activities.BasicAuthenticationActivity" />
-        <activity android:name=".CardListParentMainMenuActivity" />
-        <activity android:name=".CardListChildMainMenuActivity"></activity>
+        <activity android:name=".activities.CardListParentMainMenuActivity" />
+        <activity android:name=".activities.CardListChildMainMenuActivity" />
+        <activity android:name=".activities.CardDetailActivity" />
+        <activity android:name=".activities.NotesActivity"></activity>
     </application>
 
 </manifest>

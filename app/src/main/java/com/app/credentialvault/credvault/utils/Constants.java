@@ -5,10 +5,13 @@ package com.app.credentialvault.credvault.utils;
  */
 
 public class Constants {
+    public static final String USER="users";
+
 
     public static final String TYPE_BASIC="basic";
     public static final String TYPE_CARD="card";
     public static final String TYPE_WEBSITE="website";
+    public static final String TYPE_NOTE="note";
 
     public static final String SUCCESSFUL="Successful";
     public static final String FAILED="failed";

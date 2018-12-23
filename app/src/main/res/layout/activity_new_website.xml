@@ -1,106 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
     tools:context="com.app.credentialvault.credvault.activities.NewWebsiteActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gridBackground">
+    </android.support.v7.widget.Toolbar>
 
-    <RelativeLayout
-        android:layout_width="368dp"
-        android:layout_height="498dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="72dp"
-            android:text="Name" />
+            android:orientation="vertical">
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/credInputNewWebName"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/hintTextColorForms">
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/textView7"
-            android:layout_below="@+id/textView7"
-            android:layout_marginTop="47dp"
-            android:text="URL" />
+            android:hint="@string/name"
+            android:textColorHint="@color/cardtext"
+            android:inputType="text"
+            android:textColor="@color/pureWhite"
+            android:textColorHighlight="@color/pureWhite"/>
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/credInputNewWebUserName"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/hintTextColorForms">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/textView8"
-            android:layout_below="@+id/textView8"
-            android:layout_marginTop="52dp"
-            android:text="UserName" />
+            android:hint="@string/username"
+            android:textColorHint="@color/cardtext"
+            android:inputType="text"
+            android:textColor="@color/pureWhite"
+            android:textColorHighlight="@color/pureWhite"/>
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/credInputNewWebURL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColorHint="@color/hintTextColorForms">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/textView9"
-            android:layout_below="@+id/textView9"
-            android:layout_marginTop="53dp"
-            android:text="Password" />
+            android:hint="@string/website_url"
+            android:textColorHint="@color/cardtext"
+            android:inputType="text"
+            android:textColor="@color/pureWhite"
+            android:textColorHighlight="@color/pureWhite"/>
 
-        <EditText
-            android:id="@+id/nameEditText"
-            android:layout_width="wrap_content"
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/credInputNewWebPassword"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/hintTextColorForms">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/textView8"
-            android:layout_marginStart="22dp"
-            android:layout_toEndOf="@+id/textView7"
-            android:ems="10"
-            android:inputType="textPersonName" />
+            android:hint="@string/password"
+            android:textColorHint="@color/cardtext"
+            android:inputType="text"
+            android:textColor="@color/pureWhite"
+            android:textColorHighlight="@color/pureWhite"/>
 
-        <EditText
-            android:id="@+id/urlEditText"
-            android:layout_width="wrap_content"
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/credInputNewWebNotes"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/hintTextColorForms">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView8"
-            android:layout_alignEnd="@+id/nameEditText"
-            android:ems="10"
-            android:inputType="textPersonName" />
+            android:hint="@string/notes"
+            android:inputType="textMultiLine"
+            android:textColor="@color/pureWhite"
+            android:textColorHighlight="@color/pureWhite"
+            android:lines="2"
+            android:maxLines="2"/>
 
-        <EditText
-            android:id="@+id/usernameEditText"
-            android:layout_width="wrap_content"
+    </android.support.design.widget.TextInputLayout>
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/credCheckBoxFavNewWeb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/favourite_checkbox"
+        android:textColor="@color/cardtext"
+        android:theme="@style/CheckBoxComponent"
+        android:padding="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button android:id="@+id/credSaveNewWeb"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/textView10"
-            android:layout_alignEnd="@+id/urlEditText"
-            android:ems="10"
-            android:inputType="textPersonName" />
+            android:layout_gravity="bottom"
+            android:background="@color/gridBackground"
+            android:textColor="@color/cardtext"
+            android:text="@string/save" />
+    </LinearLayout>
 
-        <EditText
-            android:id="@+id/passwordEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView10"
-            android:layout_alignEnd="@+id/usernameEditText"
-            android:ems="10"
-            android:inputType="textPassword" />
-
-        <Button
-            android:id="@+id/saveButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="59dp"
-            android:text="Save" />
-
-    </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

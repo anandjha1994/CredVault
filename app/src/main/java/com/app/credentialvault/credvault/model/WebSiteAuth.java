@@ -22,6 +22,9 @@ public class WebSiteAuth{
     @PropertyName("password")
     private String password;
 
+    @PropertyName("favorite")
+    private boolean favorite;
+
     public WebSiteAuth() {
         //Default constructor
     }
@@ -64,5 +67,13 @@ public class WebSiteAuth{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 }
