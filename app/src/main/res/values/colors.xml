@@ -9,6 +9,8 @@
     <color name="cardtext">#36ed0d</color>
     <color name="gridBackground">#443f3f40</color>
     <color name="transparent">#00ffffff</color>
+    <color name="transparentGray">#d4323233</color>
+
 
     <color name="hintTextColorForms">#aefa9d</color>
     <color name="lightGreenAccent">#36ed0d</color>

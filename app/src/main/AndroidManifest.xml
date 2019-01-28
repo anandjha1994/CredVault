@@ -24,7 +24,8 @@
         <activity android:name=".activities.CardListParentMainMenuActivity" />
         <activity android:name=".activities.CardListChildMainMenuActivity" />
         <activity android:name=".activities.CardDetailActivity" />
-        <activity android:name=".activities.NotesActivity"></activity>
+        <activity android:name=".activities.NotesActivity" />
+        <activity android:name=".activities.AllViewerActivity"></activity>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.app.credentialvault.credvault.model;
 
 import org.jetbrains.annotations.Contract;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * Created by JHA on 10/1/2018.
  */
 
-public class CredvaultAuthenticationData {
+public class CredvaultAuthenticationData implements Serializable{
 
     private static HashMap<String, BasicLoginInfo> allBasicAuthentication;
 

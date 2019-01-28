@@ -1,11 +1,15 @@
 package com.app.credentialvault.credvault.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.app.credentialvault.credvault.R;
 import com.app.credentialvault.credvault.adapters.ParentAdapter;
@@ -43,6 +47,12 @@ public class HomeActivity extends AppCompatActivity {
     private FloatingActionButton addNewCardFamButton;
     private FloatingActionButton addNewNoteFamButton;
 
+    private CardView cardAllWebsite;
+    private CardView cardAllNotes;
+    private CardView cardAllBasic;
+    private CardView cardAllCard;
+
+
     private DatabaseReference databaseReference;
     private FloatingActionMenu floatingActionMenu;
 
@@ -60,6 +70,8 @@ public class HomeActivity extends AppCompatActivity {
     private ParentAdapter parentAdapter;
     LinearLayoutManager layoutManager;
 
+    private long backPressTime=0L;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +84,51 @@ public class HomeActivity extends AppCompatActivity {
         addNewCardFamButton =  findViewById(R.id.addNewCardButton);
         addNewNoteFamButton =  findViewById(R.id.addNotes);
         floatingActionMenu= findViewById(R.id.fam);
+
+        cardAllBasic=findViewById(R.id.cardAllBasic);
+        cardAllWebsite=findViewById(R.id.cardAllWebsite);
+        cardAllCard=findViewById(R.id.cardAllCards);
+        cardAllNotes=findViewById(R.id.cardAllNotes);
+
+        cardAllBasic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent allDataViewer=new Intent(getApplicationContext(),AllViewerActivity.class);
+                allDataViewer.putExtra("selectedType","basic");
+                startActivity(allDataViewer);
+                //
+            }
+        });
+
+        cardAllWebsite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent allDataViewer=new Intent(getApplicationContext(),AllViewerActivity.class);
+                allDataViewer.putExtra("selectedType","website");
+                startActivity(allDataViewer);
+            }
+        });
+
+        cardAllCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent allDataViewer=new Intent(getApplicationContext(),AllViewerActivity.class);
+                allDataViewer.putExtra("selectedType","card");
+                startActivity(allDataViewer);
+            }
+        });
+
+        cardAllNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent allDataViewer=new Intent(getApplicationContext(),AllViewerActivity.class);
+                allDataViewer.putExtra("selectedType","note");
+                startActivity(allDataViewer);
+            }
+        });
+
         floatingActionMenu.setClosedOnTouchOutside(true);
+        floatingActionMenu.bringToFront();
         databaseReference= FirebaseDatabase.getInstance().getReference().child(Constants.USER)
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
@@ -104,12 +160,36 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goToAddBasicAuthActivity= new Intent(getApplicationContext(), BasicAuthenticationActivity.class);
                 startActivity(goToAddBasicAuthActivity);
-
             }
         });
+
         fillUserData(databaseReference);
 
+
+
 }
+
+    @Override
+     public void onBackPressed(){
+        long time=System.currentTimeMillis();
+        if(time-backPressTime>2000){
+            backPressTime=time;
+            Toast.makeText(this, "Press back to Logout!", Toast.LENGTH_SHORT);
+        }else{
+            new AlertDialog.Builder(this)
+                    .setTitle("Confirm logout")
+                    .setMessage("Do you really want to logout from current session?")
+                    .setNegativeButton(android.R.string.no,null)
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener(){
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            FirebaseAuth.getInstance().signOut();
+                            HomeActivity.super.onBackPressed();
+                        }
+                    }).create().show();
+        }
+     }
+
 
     private void fillUserData(DatabaseReference databaseReference) {
         //Basic auth data
@@ -134,7 +214,6 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
-
 
         //Card data
         databaseReference.child(Constants.TYPE_CARD).addValueEventListener(new ValueEventListener() {
@@ -216,16 +295,16 @@ public class HomeActivity extends AppCompatActivity {
     private List<? extends ExpandableGroup> makeParentChild() {
         List<Parent> parents= new ArrayList<>();
         List<Child> childList=allCards();
-        Parent parent= new Parent("Cards",childList ,R.drawable.ic_creditcard,childList.size() );
+        Parent parent= new Parent("Cards",childList ,R.drawable.ic_credit_card_yellow_24dp,childList.size() );
         parents.add(parent);
         childList=allBasicAuth();
-        parent=new Parent("Basic Auth", childList, R.drawable.ic_basic,childList.size());
+        parent=new Parent("Basic", childList, R.drawable.ic_basic_yellow,childList.size());
         parents.add(parent);
         childList=allWebPageAuth();
-        parent=new Parent("Web Page Auth", allWebPageAuth(), R.drawable.ic_basic,childList.size());
+        parent=new Parent("Websites", allWebPageAuth(), R.drawable.ic_web_yellow,childList.size());
         parents.add(parent);
         childList=allNotes();
-        parent=new Parent("Notes", allNotes(), R.drawable.ic_basic,childList.size());
+        parent=new Parent("Notes", allNotes(), R.drawable.ic_note_yellow,childList.size());
         parents.add(parent);
         return parents;
     }
@@ -234,7 +313,7 @@ public class HomeActivity extends AppCompatActivity {
         List<Child> basicInfo=new ArrayList<>();
         if(null!=CredvaultAuthenticationData.getAllBasicAuthentication()) {
             for (BasicLoginInfo info : CredvaultAuthenticationData.getAllBasicAuthentication().values()) {
-                basicInfo.add(new Child(this,info.getName(), R.drawable.ic_basic, info.getId(), AuthenticationType.BASIC));
+                basicInfo.add(new Child(this,info.getName(), R.drawable.ic_basic_yellow, info.getId(), AuthenticationType.BASIC));
             }
             return basicInfo;
         }
@@ -245,7 +324,7 @@ public class HomeActivity extends AppCompatActivity {
         List<Child> cards=new ArrayList<>();
         if(null!=CredvaultAuthenticationData.getAllCardAuthentication()) {
             for (Card info : CredvaultAuthenticationData.getAllCardAuthentication().values()) {
-                cards.add(new Child(this,info.getName(), R.drawable.ic_creditcard, info.getId(), AuthenticationType.BASIC));
+                cards.add(new Child(this,info.getName(), R.drawable.ic_credit_card_yellow_24dp, info.getId(), AuthenticationType.BASIC));
             }
             return cards;
         }
@@ -256,7 +335,7 @@ public class HomeActivity extends AppCompatActivity {
         List<Child> webPageList=new ArrayList<>();
         if(null!=CredvaultAuthenticationData.getAllBasicAuthentication()) {
             for (WebSiteAuth info : CredvaultAuthenticationData.getAllWebpageAuthentication().values()) {
-                webPageList.add(new Child(this,info.getName(), R.drawable.ic_web, info.getId(), AuthenticationType.BASIC));
+                webPageList.add(new Child(this,info.getName(), R.drawable.ic_web_yellow, info.getId(), AuthenticationType.BASIC));
             }
             return webPageList;
         }
@@ -267,7 +346,7 @@ public class HomeActivity extends AppCompatActivity {
         List<Child> notes=new ArrayList<>();
         if(null!=CredvaultAuthenticationData.getAllNotesAuthentication()) {
             for (Notes info : CredvaultAuthenticationData.getAllNotesAuthentication().values()) {
-                notes.add(new Child(this,info.getTitle(), R.drawable.ic_note, info.getId(), AuthenticationType.BASIC));
+                notes.add(new Child(this,info.getTitle(), R.drawable.ic_note_yellow, info.getId(), AuthenticationType.BASIC));
             }
             return notes;
         }

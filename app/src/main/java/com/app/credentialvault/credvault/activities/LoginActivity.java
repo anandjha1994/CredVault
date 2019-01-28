@@ -1,6 +1,9 @@
 package com.app.credentialvault.credvault.activities;
 
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +14,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.app.credentialvault.credvault.R;
+import com.app.credentialvault.credvault.adapters.UserDataAdapter;
+import com.app.credentialvault.credvault.model.CredvaultAuthenticationData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,19 +34,18 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-    private DatabaseReference databaseUserCred;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        checkConnectivityAndSpeed();
         setContentView(R.layout.activity_login);
 
         mAuth=FirebaseAuth.getInstance();
-        userName=(EditText) findViewById(R.id.logInUser);
-        passWord=(EditText) findViewById(R.id.logInPassword);
-        logInButton=(Button) findViewById(R.id.logInButton);
-        redirectRegisterButton=(Button) findViewById(R.id.redirectRegisterButton);
+        userName=findViewById(R.id.logInUser);
+        passWord=findViewById(R.id.logInPassword);
+        logInButton=findViewById(R.id.logInButton);
+        redirectRegisterButton=findViewById(R.id.redirectRegisterButton);
 
         //Add on Click listener
         logInButton.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +68,16 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    private int checkConnectivityAndSpeed() {
+        ConnectivityManager connectivityManager=(ConnectivityManager)getSystemService(getBaseContext().CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo=connectivityManager.getActiveNetworkInfo();
+        if(null!=networkInfo && networkInfo.isConnectedOrConnecting()){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
     private void loginMethod(){
         if(null!=mAuth.getCurrentUser()){
             Toast.makeText(LoginActivity.this, "Already logged in session. Logging out...", Toast.LENGTH_SHORT).show();
@@ -80,8 +94,17 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Toast.makeText(LoginActivity.this, "Successful ", Toast.LENGTH_SHORT).show();
                             //redirect to home
+                            UserDataAdapter userDataAdapter=new UserDataAdapter();
+                            /*try {
+                                userDataAdapter.run();
+                                userDataAdapter.run();
+                                Log.println(Log.INFO,"", String.valueOf(CredvaultAuthenticationData.getAllCardAuthentication().size()));
+                            } catch (Exception exception){
+                                exception.printStackTrace();
+                            }*/
                             Intent goTOHome= new Intent(getApplicationContext(), HomeActivity.class);
                             startActivity(goTOHome);
+                            finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "Login:failure", task.getException());

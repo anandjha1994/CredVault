@@ -10,7 +10,7 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/gridBackground">
     </android.support.v7.widget.Toolbar>
 
@@ -28,15 +28,54 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="@color/hintTextColorForms">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" android:baselineAligned="false">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".8">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/editTextWebsiteName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name"
-            android:textColorHint="@color/cardtext"
             android:inputType="text"
             android:textColor="@color/pureWhite"
-            android:textColorHighlight="@color/pureWhite"/>
+            android:textColorHighlight="@color/pureWhite"
+            android:textColorHint="@color/hintTextColorForms"/>
+        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relativeLayoutWebsiteCopySectionName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:visibility="gone">
+                <ImageButton
+                    android:id="@+id/buttonCopyCardName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_content_copy_light_white_24dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relativeLayoutWebsiteEditSectionName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:visibility="gone">
+                <ImageButton
+                    android:id="@+id/buttonEditWebsiteName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:src="@drawable/ic_mode_edit_light_white_24dp"
+                    android:contentDescription="@string/app_name" />
+            </RelativeLayout>
+        </LinearLayout>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -46,14 +85,52 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="@color/hintTextColorForms">
-        <android.support.design.widget.TextInputEditText
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" android:baselineAligned="false">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8">
+
+            <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/username"
-            android:textColorHint="@color/cardtext"
             android:inputType="text"
             android:textColor="@color/pureWhite"
-            android:textColorHighlight="@color/pureWhite"/>
+            android:textColorHighlight="@color/pureWhite" android:textColorHint="@color/hintTextColorForms"/>
+    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relativeLayoutWebsiteCopySectionUsername"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:visibility="gone">
+                <ImageButton
+                    android:id="@+id/buttonCopyWebsiteUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_content_copy_light_white_24dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relativeLayoutWebsiteEditSectionUsername"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:visibility="gone">
+                <ImageButton
+                    android:id="@+id/buttonEditWebsiteUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:src="@drawable/ic_mode_edit_light_white_24dp"
+                    android:contentDescription="@string/app_name" />
+            </RelativeLayout>
+        </LinearLayout>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -63,15 +140,52 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:textColorHint="@color/hintTextColorForms">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" android:baselineAligned="false">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/website_url"
-            android:textColorHint="@color/cardtext"
-            android:inputType="text"
             android:textColor="@color/pureWhite"
-            android:textColorHighlight="@color/pureWhite"/>
+            android:textColorHighlight="@color/pureWhite"
+            android:textColorHint="@color/hintTextColorForms"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayoutWebsiteCopySectionUrl"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".1"
+        android:visibility="gone">
+        <ImageButton
+            android:id="@+id/buttonCopyWebsiteUrl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_content_copy_light_white_24dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayoutWebsiteEditSectionUrl"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".1"
+        android:visibility="gone">
+        <ImageButton
+            android:id="@+id/buttonEditWebsiteUrl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_mode_edit_light_white_24dp"
+            android:contentDescription="@string/app_name" />
+    </RelativeLayout>
+</LinearLayout>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -81,14 +195,53 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="@color/hintTextColorForms">
-        <android.support.design.widget.TextInputEditText
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" android:baselineAligned="false">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8">
+
+            <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
-            android:textColorHint="@color/cardtext"
             android:inputType="text"
             android:textColor="@color/pureWhite"
-            android:textColorHighlight="@color/pureWhite"/>
+            android:textColorHighlight="@color/pureWhite"
+            android:textColorHint="@color/hintTextColorForms"/>
+    </RelativeLayout>
+<RelativeLayout
+android:id="@+id/relativeLayoutWebsiteCopySectionPassword"
+android:layout_width="0dp"
+android:layout_height="match_parent"
+android:layout_weight=".1"
+android:visibility="gone">
+<ImageButton
+    android:id="@+id/buttonCopyWebsitePassword"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:contentDescription="@string/app_name"
+    android:src="@drawable/ic_content_copy_light_white_24dp"/>
+</RelativeLayout>
+<RelativeLayout
+android:id="@+id/relativeLayoutWebsiteEditSectionPassword"
+android:layout_width="0dp"
+android:layout_height="match_parent"
+android:layout_weight=".1"
+android:visibility="gone">
+<ImageButton
+    android:id="@+id/buttonEditWebsitePassword"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:src="@drawable/ic_mode_edit_light_white_24dp"
+    android:contentDescription="@string/app_name" />
+</RelativeLayout>
+    </LinearLayout>
 
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
@@ -97,15 +250,57 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="@color/hintTextColorForms">
-        <android.support.design.widget.TextInputEditText
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" android:baselineAligned="false">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8">
+
+            <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/notes"
             android:inputType="textMultiLine"
             android:textColor="@color/pureWhite"
             android:textColorHighlight="@color/pureWhite"
+                android:textColorHint="@color/hintTextColorForms"
             android:lines="2"
             android:maxLines="2"/>
+    </RelativeLayout>
+<RelativeLayout
+android:id="@+id/relativeLayoutWebsiteCopySectionNote"
+android:layout_width="0dp"
+android:layout_height="match_parent"
+android:layout_weight=".1"
+    android:gravity="bottom"
+android:visibility="gone">
+<ImageButton
+    android:id="@+id/buttonCopyWebsiteNote"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:contentDescription="@string/app_name"
+    android:src="@drawable/ic_content_copy_light_white_24dp"/>
+</RelativeLayout>
+<RelativeLayout
+android:id="@+id/relativeLayoutWebsiteEditSectionNote"
+android:layout_width="0dp"
+android:layout_height="match_parent"
+android:layout_weight=".1"
+    android:gravity="bottom"
+android:visibility="gone">
+<ImageButton
+    android:id="@+id/buttonEditWebsiteNote"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:src="@drawable/ic_mode_edit_light_white_24dp"
+    android:contentDescription="@string/app_name" />
+</RelativeLayout>
+    </LinearLayout>
 
     </android.support.design.widget.TextInputLayout>
     <android.support.v7.widget.AppCompatCheckBox

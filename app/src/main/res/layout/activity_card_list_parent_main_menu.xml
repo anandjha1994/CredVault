@@ -8,25 +8,30 @@
     android:background="@color/gridBackground"
     android:orientation="horizontal"
     tools:context="com.app.credentialvault.credvault.activities.CardListParentMainMenuActivity"
-    android:baselineAligned="false">
+    android:baselineAligned="false"
+    >
 
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_weight=".2"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingLeft="4dp">
         <ImageView
             android:id="@+id/parent_icon_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="0dp"
-            android:contentDescription="@string/fav_card"
-            />
+            android:contentDescription="@string/fav_card"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="0dp"
-        android:layout_weight=".5"
-        android:layout_height="wrap_content">
+        android:layout_weight=".6"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
 
         <TextView
             android:id="@+id/parent_text_label"
@@ -34,33 +39,39 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="16dp"
-            android:gravity="center"
+            android:gravity="fill_vertical"
             android:textColor="@color/blueGray"
             tools:text="Credentials"
-            android:textSize="16dp"/>
+            android:textSize="18sp"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_weight=".1"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
         <TextView
             android:id="@+id/parent_text_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="fill_vertical"
             android:layout_centerHorizontal="true"
             android:textColor="@color/toolbar"
-            android:textSize="15dp"/>
+            android:textSize="18sp"
+            android:backgroundTintMode="multiply"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="0dp"
-        android:layout_weight=".2"
-        android:layout_height="wrap_content">
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
         <ImageView
             android:id="@+id/parent_icon_tail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:contentDescription="@string/fav_card" />
+            android:layout_gravity="fill_horizontal"
+            android:contentDescription="@string/fav_card"
+            android:src="@drawable/ic_arrow_drop_down_green_24dp"/>
     </RelativeLayout>
 </LinearLayout >

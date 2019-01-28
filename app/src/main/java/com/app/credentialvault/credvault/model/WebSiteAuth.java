@@ -22,6 +22,11 @@ public class WebSiteAuth{
     @PropertyName("password")
     private String password;
 
+
+    @PropertyName("additional")
+    private String additional;
+
+
     @PropertyName("favorite")
     private boolean favorite;
 
@@ -63,6 +68,13 @@ public class WebSiteAuth{
 
     public String getPassword() {
         return password;
+    }
+    public String getAdditional() {
+        return additional;
+    }
+
+    public void setAdditional(String additional) {
+        this.additional = additional;
     }
 
     public void setPassword(String password) {
