@@ -13,6 +13,10 @@ import android.widget.Toast;
 import com.app.credentialvault.credvault.R;
 import com.app.credentialvault.credvault.activities.CardDetailActivity;
 import com.app.credentialvault.credvault.activities.HomeActivity;
+import com.app.credentialvault.credvault.activities.NewWebsiteActivity;
+import com.app.credentialvault.credvault.activities.NotesActivity;
+import com.app.credentialvault.credvault.model.BasicLoginInfo;
+import com.app.credentialvault.credvault.model.WebSiteAuth;
 import com.app.credentialvault.credvault.utils.AuthenticationType;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
@@ -37,10 +41,29 @@ public class ChildListHolder extends ChildViewHolder {
         credLoutChild.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(context, CardDetailActivity.class);
+                Intent intent;
+
+                switch(authenticationType){
+                    case BASIC:
+                        intent= new Intent(context, BasicLoginInfo.class);
+                        break;
+                    case CARD:
+                        intent=new Intent(context,CardDetailActivity.class);
+                        break;
+                    case NOTES:
+                        intent=new Intent(context,NotesActivity.class);
+                        break;
+                    case WEBPAGE:
+                        intent=new Intent(context, NewWebsiteActivity.class);
+                        break;
+                    default:
+                        Toast.makeText(view.getContext(), "Default case initiated due to some problem", Toast.LENGTH_LONG).show();
+                        intent=new Intent(context, HomeActivity.class);
+                }
                 intent.putExtra("refObjId", objRefId);
                 context.startActivity(intent);
                 Toast.makeText(view.getContext(), "child="+childLabel.getText().toString(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }

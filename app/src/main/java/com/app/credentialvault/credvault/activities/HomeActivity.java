@@ -301,10 +301,10 @@ public class HomeActivity extends AppCompatActivity {
         parent=new Parent("Basic", childList, R.drawable.ic_basic_yellow,childList.size());
         parents.add(parent);
         childList=allWebPageAuth();
-        parent=new Parent("Websites", allWebPageAuth(), R.drawable.ic_web_yellow,childList.size());
+        parent=new Parent("Websites", childList, R.drawable.ic_web_yellow,childList.size());
         parents.add(parent);
         childList=allNotes();
-        parent=new Parent("Notes", allNotes(), R.drawable.ic_note_yellow,childList.size());
+        parent=new Parent("Notes", childList, R.drawable.ic_note_yellow,childList.size());
         parents.add(parent);
         return parents;
     }
@@ -324,7 +324,7 @@ public class HomeActivity extends AppCompatActivity {
         List<Child> cards=new ArrayList<>();
         if(null!=CredvaultAuthenticationData.getAllCardAuthentication()) {
             for (Card info : CredvaultAuthenticationData.getAllCardAuthentication().values()) {
-                cards.add(new Child(this,info.getName(), R.drawable.ic_credit_card_yellow_24dp, info.getId(), AuthenticationType.BASIC));
+                cards.add(new Child(this,info.getName(), R.drawable.ic_credit_card_yellow_24dp, info.getId(), AuthenticationType.CARD));
             }
             return cards;
         }
@@ -333,9 +333,9 @@ public class HomeActivity extends AppCompatActivity {
 
     private List<Child> allWebPageAuth() {
         List<Child> webPageList=new ArrayList<>();
-        if(null!=CredvaultAuthenticationData.getAllBasicAuthentication()) {
+        if(null!=CredvaultAuthenticationData.getAllWebpageAuthentication()) {
             for (WebSiteAuth info : CredvaultAuthenticationData.getAllWebpageAuthentication().values()) {
-                webPageList.add(new Child(this,info.getName(), R.drawable.ic_web_yellow, info.getId(), AuthenticationType.BASIC));
+                webPageList.add(new Child(this,info.getName(), R.drawable.ic_web_yellow, info.getId(), AuthenticationType.WEBPAGE));
             }
             return webPageList;
         }
@@ -346,7 +346,7 @@ public class HomeActivity extends AppCompatActivity {
         List<Child> notes=new ArrayList<>();
         if(null!=CredvaultAuthenticationData.getAllNotesAuthentication()) {
             for (Notes info : CredvaultAuthenticationData.getAllNotesAuthentication().values()) {
-                notes.add(new Child(this,info.getTitle(), R.drawable.ic_note_yellow, info.getId(), AuthenticationType.BASIC));
+                notes.add(new Child(this,info.getTitle(), R.drawable.ic_note_yellow, info.getId(), AuthenticationType.NOTES));
             }
             return notes;
         }

@@ -43,7 +43,8 @@
             android:inputType="text"
             android:textColor="@color/pureWhite"
             android:textColorHighlight="@color/pureWhite"
-            android:textColorHint="@color/hintTextColorForms"/>
+            android:textColorHint="@color/hintTextColorForms"
+            tools:text="@tools:sample/first_names"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/relativeLayoutCardCopySectionName"
@@ -97,7 +98,8 @@
             android:inputType="number"
             android:textColor="@color/pureWhite"
             android:textColorHighlight="@color/pureWhite"
-            android:textColorHint="@color/hintTextColorForms"/>
+            android:textColorHint="@color/hintTextColorForms"
+            tools:text="@tools:sample/date/hhmmss"/>
             </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/relativeLayoutCardCopySectionNumber"

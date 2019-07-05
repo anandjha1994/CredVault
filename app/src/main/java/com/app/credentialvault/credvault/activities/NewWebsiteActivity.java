@@ -231,11 +231,11 @@ public class NewWebsiteActivity extends AppCompatActivity {
 
     private void bindAllFormElements() {
         saveButton= findViewById(R.id.credSaveNewWeb);
-        websiteNameEditText=findViewById(R.id.credInputNewWebName);
-        urlEditText=findViewById(R.id.credInputNewWebURL);
-        userNameEditText=findViewById(R.id.credInputNewWebUserName);
-        passwordEditText=findViewById(R.id.credInputNewWebPassword);
-        noteEditText=findViewById(R.id.credInputNewWebNotes);
+        websiteNameEditText=findViewById(R.id.editTextWebsiteName);
+        urlEditText=findViewById(R.id.editTextWebsiteUrl);
+        userNameEditText=findViewById(R.id.editTextWebsiteUserName);
+        passwordEditText=findViewById(R.id.editTextWebsitePassword);
+        noteEditText=findViewById(R.id.editTextWebsiteNote);
         checkBoxFavourite=findViewById(R.id.credCheckBoxFavNewWeb);
 
         toolbar=findViewById(R.id.toolbar);
